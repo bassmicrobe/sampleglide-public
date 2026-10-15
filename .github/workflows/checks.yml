@@ -1,0 +1,35 @@
+name: Checks
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install checksum-verified Gitleaks
+        shell: bash
+        run: |
+          audit_tools="$(mktemp -d "$RUNNER_TEMP/sampleglide-secrets.XXXXXX")"
+          curl --fail --location --silent --show-error \
+            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
+            --output "$audit_tools/gitleaks.tar.gz"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $audit_tools/gitleaks.tar.gz" | sha256sum --check --status
+          tar -xzf "$audit_tools/gitleaks.tar.gz" -C "$audit_tools" gitleaks
+          echo "$audit_tools" >> "$GITHUB_PATH"
+      - name: Check every commit for secrets
+        run: gitleaks git . --config .gitleaks.toml --log-opts="--all" --ignore-gitleaks-allow --redact=100 --no-banner
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift build --package-path apps/macos
+      - run: swift test --package-path apps/macos

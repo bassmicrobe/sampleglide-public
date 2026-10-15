@@ -1,0 +1,30 @@
+{
+  "fill": {
+    "linear-gradient": [
+      "display-p3:0.13,0.14,0.18,1.0",
+      "display-p3:0.07,0.08,0.10,1.0"
+    ]
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "Artwork.png",
+          "name": "Artwork"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.0
+      },
+      "translucency": {
+        "enabled": false,
+        "value": 0.0
+      }
+    }
+  ],
+  "supported-platforms": {
+    "circles": [],
+    "squares": "shared"
+  }
+}

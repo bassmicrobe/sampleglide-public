@@ -9,8 +9,8 @@ let package = Package(
         .target(
             name: "SampleBrowserAssets",
             path: "Assets",
-            exclude: ["README.md", "AppIcon.icon.json"],
-            resources: [.copy("AppIcon.png")]
+            exclude: ["README.md", "AppIcon.icon.json", "Brand"],
+            resources: [.copy("AppIcon.png"), .copy("BrandLogo.png")]
         ),
         .executableTarget(name: "SampleBrowser", dependencies: ["SampleBrowserAssets"]),
         .testTarget(name: "SampleBrowserTests", dependencies: ["SampleBrowser"])

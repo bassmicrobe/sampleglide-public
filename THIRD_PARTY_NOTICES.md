@@ -1,12 +1,12 @@
 # Licensing scope and third-party components
 
-SampleGlide's original source code, included documentation, generated app icon, and original synthetic signals created by the tests are offered under the root [MIT License](LICENSE). The copyright holder is identified by the public account name `bassmicrobe`. This license does not relicense third-party SDKs or audio supplied by users.
+SampleGlide's original source code, included documentation, owner-supplied app icon and logo, and original synthetic signals created by the tests are offered under the root [MIT License](LICENSE). The copyright holder is identified by the public account name `bassmicrobe`. This license does not relicense third-party SDKs or audio supplied by users.
 
 ## macOS application
 
 The Swift package declares no external Swift package dependencies. It uses Apple system frameworks, including SwiftUI, AppKit, AVFoundation, and system SQLite. Apple's SDK and platform terms remain applicable. No third-party source libraries, fonts, or sample packs are vendored here.
 
-The generated app icon's provenance is documented in [the assets README](apps/macos/Assets/README.md). The icon artwork was generated for this application; references to Apple's icon documentation describe the platform asset format.
+The owner-supplied app icon and logo's provenance is documented in [the assets README](apps/macos/Assets/README.md). The current artwork was supplied by the project owner on 2026-10-25; references to Apple's icon documentation describe the platform asset format.
 
 ## Excluded components
 

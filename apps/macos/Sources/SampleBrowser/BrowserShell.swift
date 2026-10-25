@@ -305,19 +305,15 @@ struct BrowserView: View {
 
     private var sidebar: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: 13) {
-                Image(nsImage: AppArtwork.icon)
-                    .resizable()
-                    .interpolation(.high)
-                    .scaledToFit()
-                    .frame(width: 60, height: 60)
-                    .accessibilityLabel("SampleGlide のアイコン")
-                Text("SampleGlide")
-                    .font(.system(size: 19, weight: .bold, design: .rounded))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.85)
-            }
-            .padding(.top, 12).padding(.bottom, 24)
+            Image(nsImage: AppArtwork.logo)
+                .resizable()
+                .interpolation(.high)
+                .scaledToFit()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: 60)
+                .accessibilityLabel("SampleGlide")
+                .accessibilityAddTraits(.isHeader)
+                .padding(.top, 12).padding(.bottom, 24)
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     sectionLabel("ライブラリ")

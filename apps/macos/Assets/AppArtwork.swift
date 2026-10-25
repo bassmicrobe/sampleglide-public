@@ -10,11 +10,14 @@ public enum AppArtwork {
         return .module
     }()
 
-    @MainActor public static let icon: NSImage = {
-        guard let url = bundle.url(forResource: "AppIcon", withExtension: "png"),
+    @MainActor public static let icon: NSImage = image(named: "AppIcon")
+    @MainActor public static let logo: NSImage = image(named: "BrandLogo")
+
+    @MainActor private static func image(named name: String) -> NSImage {
+        guard let url = bundle.url(forResource: name, withExtension: "png"),
               let image = NSImage(contentsOf: url) else {
             return NSImage()
         }
         return image
-    }()
+    }
 }

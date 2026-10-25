@@ -1,6 +1,10 @@
 # SampleGlide
 
-<img src="apps/macos/Assets/AppIcon.png" width="128" height="128" alt="SampleGlideのアプリアイコン">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="apps/macos/Assets/Brand/sampleglide-lockup-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="apps/macos/Assets/Brand/sampleglide-lockup-light.svg">
+  <img src="apps/macos/Assets/Brand/sampleglide-lockup-light.svg" width="456" height="120" alt="SampleGlide">
+</picture>
 
 **欲しい音を、すぐ制作へ。**
 
@@ -116,7 +120,7 @@ swift run --package-path apps/macos SampleGlide
 
 ダークグレーにラベンダー・シアンを合わせた日本語UIです。大きめのフォント・一覧行・ボタンを使い、サイドバー・ブラウザ・素材詳細・波形プレビューを配置しています。狭いウィンドウでは素材詳細をシートで表示します。
 
-波形と素材カードを組み合わせたアイコンを、macOSのアプリアイコンと画面左上のロゴに使用。画像はアプリに同梱しています。
+提供されたフォルダと波形のロゴを、アプリアイコンと画面左上の文字入りロゴに使用しています。画像はアプリに同梱し、READMEではライト／ダーク表示に合わせてロゴを切り替えます。
 
 ## 主な操作
 
@@ -187,7 +191,7 @@ GitHub ActionsでmacOSのビルド・テストと全コミットの秘密情報�
 
 ## ライセンス
 
-独自コード、同梱ドキュメント、生成したアプリアイコン、自作の合成テスト信号は、[MIT License](LICENSE)で提供します。著作権表示には公開アカウント名 `bassmicrobe` を使用しています。第三者のSDKや利用者が追加するサンプル音源には、それぞれの権利者の条件が適用されます。[第三者ライセンスについて](THIRD_PARTY_NOTICES.md)を参照してください。
+独自コード、同梱ドキュメント、提供されたアプリアイコン・ロゴ、自作の合成テスト信号は、[MIT License](LICENSE)で提供します。著作権表示には公開アカウント名 `bassmicrobe` を使用しています。第三者のSDKや利用者が追加するサンプル音源には、それぞれの権利者の条件が適用されます。[第三者ライセンスについて](THIRD_PARTY_NOTICES.md)を参照してください。
 
 ## CI の Node.js 内部ランタイム（2026-10-22）
 

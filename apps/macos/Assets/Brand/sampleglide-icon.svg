@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262838"/>
+      <stop offset="1" stop-color="#13141B"/>
+    </linearGradient>
+    <linearGradient id="sg" gradientUnits="userSpaceOnUse" x1="14" y1="22" x2="86" y2="78">
+      <stop offset="0" stop-color="#9B86FF"/>
+      <stop offset="0.55" stop-color="#8FB0FF"/>
+      <stop offset="1" stop-color="#6FE6F5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.6" stdDeviation="1.8" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect x="9" y="9" width="82" height="82" rx="19" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="9.4" y="9.4" width="81.2" height="81.2" rx="18.6" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="0.8"/>
+  <g transform="translate(17 17) scale(0.66)">
+    <path d="M14 30 Q14 22 22 22 L40 22 L47 30 L78 30 Q86 30 86 38 L86 70 Q86 78 78 78 L22 78 Q14 78 14 70 Z" fill="none" stroke="url(#sg)" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="33.5" y="50" width="4.5" height="10" rx="2.25" fill="url(#sg)"/>
+    <rect x="41" y="45" width="4.5" height="20" rx="2.25" fill="url(#sg)"/>
+    <rect x="48.5" y="40" width="4.5" height="30" rx="2.25" fill="url(#sg)"/>
+    <rect x="56" y="45" width="4.5" height="20" rx="2.25" fill="url(#sg)"/>
+    <rect x="63.5" y="50" width="4.5" height="10" rx="2.25" fill="url(#sg)"/>
+  </g>
+</svg>

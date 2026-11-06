@@ -8,7 +8,7 @@ if [[ "$CONFIGURATION" != "release" && "$CONFIGURATION" != "debug" ]]; then
 fi
 swift build --package-path "$APP_ROOT" -c "$CONFIGURATION"
 BIN_DIR="$(swift build --package-path "$APP_ROOT" -c "$CONFIGURATION" --show-bin-path)"
-APP_BUNDLE="$APP_ROOT/dist/SampleGlide.app"
+APP_BUNDLE="${APP_OUTPUT_DIR:-$APP_ROOT/dist}/SampleGlide.app"
 mkdir -p "$APP_BUNDLE/Contents/MacOS" "$APP_BUNDLE/Contents/Resources"
 # Replace the generated bundle; merging can retain artwork from an older SwiftPM layout.
 RESOURCE_BUNDLE="$APP_BUNDLE/Contents/Resources/SampleBrowser_SampleBrowserAssets.bundle"

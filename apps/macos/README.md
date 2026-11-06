@@ -9,7 +9,9 @@ open 'apps/macos/dist/SampleGlide.app'
 swift test --package-path apps/macos
 ```
 
-`build-app.sh debug` creates a faster local development bundle. The app is ad-hoc signed, not notarized or prepared for public distribution. The build runs in the selected checkout and does not install in `/Applications`.
+`build-app.sh debug` creates a faster local development bundle. `build-app.sh` uses ad-hoc signing for development and runs in the selected checkout without installing in `/Applications`. Set `APP_OUTPUT_DIR` to place the generated `SampleGlide.app` in a separate directory.
+
+For distribution, `scripts/notarize-app.sh` builds an isolated release app, signs it with Developer ID and Hardened Runtime, submits it to Apple, staples the accepted ticket, and verifies the final ZIP after extraction. It also creates and checks a SHA-256 file. A valid signing identity and notarization Keychain profile are required; see [signing and notarization](../../docs/NOTARIZATION.md). This process creates local distribution artifacts without installing the app.
 
 SampleGlide is the public app and SwiftPM executable product name. The internal `SampleBrowser` module, `SampleBrowserAssets` resource target, `jp.samplebrowser` identifiers (including the bundle identifier and Keychain services), existing settings/data locations, and `~/Music/Sample Browser Exports` remain unchanged from Sample Browser to preserve favorites, settings, credentials, and DAW file references. No data migration is required.
 

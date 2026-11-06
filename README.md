@@ -22,7 +22,6 @@ Finderに接続済みのNASは、素材フォルダを追加するだけで使�
 - 波形ズーム、加工音声のリアルタイム処理、ギャップレスループ、加工キャッシュの容量制限
 - 加工はモノラル／ステレオが対象。加工WAVは原音のサンプルレート・Float32形式で出力し、標準WAVの4 GBを超える出力は拒否
 - Intel／macOS 14の実機試験、6 TB全量の性能試験、実素材の聴感品質、外部DAWへの実ドロップは未検証
-- ソースからのビルドに対応。配布用の署名・公証済みアプリは未提供
 
 このリポジトリは匿名化済みの現行ファイルから初期コミットした独立リポジトリです。旧リポジトリのGit履歴・実行ログ・ローカル設定は引き継いでいません。
 
@@ -39,7 +38,13 @@ Finderに接続済みのNASは、素材フォルダを追加するだけで使�
 
 Apple Silicon / macOS 26 / Swift 6.3.3で検証しています。IntelとmacOS 14での実機試験は未実施です。
 
-## セットアップ
+## ダウンロード
+
+[GitHub Releases](https://github.com/bassmicrobe/sampleglide-public/releases/tag/v0.1.0) から、Apple公証済みの `SampleGlide-macOS-arm64.zip` とSHA-256ファイルを取得できます。配布アプリはApple Silicon向けで、macOS 14以降に対応します。
+
+ZIPを展開し、`SampleGlide.app` を「アプリケーション」フォルダへ移動して起動してください。Xcodeやサーバーの設定は不要です。
+
+## ソースからのセットアップ
 
 | 必要環境 | 条件 |
 |---|---|
@@ -54,7 +59,9 @@ bash apps/macos/scripts/build-app.sh
 open 'apps/macos/dist/SampleGlide.app'
 ```
 
-生成先は `apps/macos/dist/SampleGlide.app` です。`/Applications` への自動インストールは行いません。現時点ではアドホック署名で、配布用の署名・公証は未対応です。`build-app.sh debug` は開発用の高速ビルドです。
+生成先は `apps/macos/dist/SampleGlide.app` です。開発用のアドホック署名を行い、`/Applications` への自動インストールは行いません。`build-app.sh debug` は開発用の高速ビルドです。
+
+配布用には `apps/macos/scripts/notarize-app.sh` でDeveloper ID署名・Apple公証・チケット添付を行い、検証済みZIPとSHA-256ファイルを作成できます。設定と実行方法は [署名・公証の手順](docs/NOTARIZATION.md) を参照してください。
 
 開発中はSwiftPMからも起動できます。
 
@@ -126,6 +133,7 @@ NASのマウント先は環境や再接続によって変わる場合があり�
 - [公開準備の確認記録（2026-10-15）](docs/PUBLIC_RELEASE_REVIEW_2026-10-15.md)
 - [CI の Node.js 内部ランタイム（2026-10-22）](docs/CI_NODE_RUNTIME_2026-10-22.md)
 - [macOS技術資料](apps/macos/README.md)
+- [署名・Apple公証](docs/NOTARIZATION.md)
 - [ブランドアセット](apps/macos/Assets/README.md)
 - [第三者ライセンス](THIRD_PARTY_NOTICES.md)
 
